@@ -9,8 +9,9 @@ export const steps = [
 
 export type Step = (typeof steps)[number];
 
-const heroDataByStep: Record<Step, {}> = {
-  metamask: {
-    title: "Get your TestNet X SBT",
-  },
+export type State = {
+  isFollowingConfirmed: boolean;
+  isRepost: boolean;
+  isSBTIssued: boolean;
+  isXConnected: boolean;
 };

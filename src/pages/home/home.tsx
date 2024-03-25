@@ -2,27 +2,53 @@ import { useAccount } from "wagmi";
 
 import { Footer } from "pages/home/ui/footer";
 import { Header } from "pages/home/ui/header";
+import { useStateX } from "shared/hooks";
 
 import { Step } from "./const";
-import { Hero } from "./ui/hero";
+import { TempCtx } from "./temp-ctx";
+import { Hero } from "./ui/hero/hero";
 
 export const Home = () => {
-  // const [currentStep, setCurrentStep] = useState<Step>("metamask");
+  const result = useStateX({
+    isFollowingConfirmed: false,
+    isXConnected: false,
+    isRepost: false,
+    isSBTIssued: false,
+  });
+
+  const [{ isXConnected, isFollowingConfirmed, isRepost, isSBTIssued }] =
+    result;
 
   let currentStep: Step = "metamask";
-  const { address } = useAccount();
+  const { isConnected } = useAccount();
 
-  if (address) {
+  if (isConnected) {
     currentStep = "x";
   }
 
-  console.log(currentStep);
+  if (isXConnected) {
+    currentStep = "followGalactica";
+  }
+
+  if (isFollowingConfirmed) {
+    currentStep = "repost";
+  }
+
+  if (isRepost) {
+    currentStep = "issueSBT";
+  }
+
+  if (isSBTIssued) {
+    currentStep = "receiveSBT";
+  }
 
   return (
-    <div className="relative flex min-h-full grow flex-col bg-main bg-cover bg-top bg-no-repeat px-28 pt-[18px]">
-      <Header />
-      <Hero className="mt-auto" />
-      <Footer className="mb-16 mt-auto" step={currentStep} />
-    </div>
+    <TempCtx.Provider value={result}>
+      <div className="relative flex min-h-full grow flex-col bg-main bg-cover bg-top bg-no-repeat px-28 pt-[18px]">
+        <Header />
+        <Hero className="mt-auto" step={currentStep} />
+        <Footer className="mb-16 mt-auto" step={currentStep} />
+      </div>
+    </TempCtx.Provider>
   );
 };
