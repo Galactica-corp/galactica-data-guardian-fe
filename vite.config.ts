@@ -1,5 +1,5 @@
 import react from "@vitejs/plugin-react-swc";
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import { checker } from "vite-plugin-checker";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
 import removeConsole from "vite-plugin-remove-console";
@@ -9,6 +9,8 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig(({ mode }) => {
   const isProd = mode === "production";
   const isDev = mode === "development";
+
+  const env = loadEnv(mode, process.cwd(), "");
 
   return {
     build: {
@@ -34,7 +36,7 @@ export default defineConfig(({ mode }) => {
     server: {
       proxy: {
         "/api": {
-          target: "https://occam-dataguardian.lookhere.tech",
+          target: env.VITE_GRAPHQL_SERVER,
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ""),
         },

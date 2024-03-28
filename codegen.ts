@@ -6,7 +6,7 @@ const env = loadEnv("development", process.cwd(), "");
 
 const config: CodegenConfig = {
   overwrite: true,
-  schema: "https://occam-dataguardian.lookhere.tech/query",
+  schema: `${env.VITE_GRAPHQL_SERVER}/query`,
   documents: "src/shared/graphql/**/*.graphql",
   generates: {
     "src/shared/graphql/index.ts": {
@@ -16,13 +16,18 @@ const config: CodegenConfig = {
         "typescript-react-query",
       ],
       config: {
+        exposeQueryKeys: true,
+        addSuspenseQuery: true,
         reactQueryVersion: 5,
         avoidOptionals: true,
         constEnums: true,
+        enumsAsTypes: true,
+
         fetcher: {
-          endpoint: `"${env.VITE_ENDPOINT}"`,
+          func: "./fetcher.ts#graphqlRequestFetcher",
           fetchParams: {
             headers: {
+              Accept: "application/json",
               "Content-Type": "application/json",
             },
           },

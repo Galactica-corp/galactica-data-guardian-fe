@@ -68,7 +68,7 @@ module.exports = {
   rules: {
     "import/no-default-export": ["error"],
     "import/namespace": ["error", { allowComputed: true }],
-    "@typescript-eslint/no-unused-vars": ["warn"],
+    "@typescript-eslint/no-unused-vars": ["warn", { varsIgnorePattern: "^_" }],
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },

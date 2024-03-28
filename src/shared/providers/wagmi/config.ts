@@ -10,7 +10,7 @@ export const config = createConfig({
     return createClient({
       batch: {
         multicall: {
-          batchSize: 1024 * 10,
+          batchSize: 1024 * 3, // 3kb
         },
       },
       chain,

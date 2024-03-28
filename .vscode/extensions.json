@@ -5,3 +5,8 @@
     "esbenp.prettier-vscode"
   ]
 }
+// "material-icon-theme.folders.associations": {
+//   "entities": "base",
+//   "features": "plugin",
+//   "ui": "react-components"
+// }

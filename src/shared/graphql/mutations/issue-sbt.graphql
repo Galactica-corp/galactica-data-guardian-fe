@@ -1,0 +1,6 @@
+mutation IssueSBT {
+  issueSBT {
+    transactionHash
+    success
+  }
+}

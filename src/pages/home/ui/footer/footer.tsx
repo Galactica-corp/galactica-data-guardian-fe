@@ -26,10 +26,16 @@ const stepData = [
     iconClassName: twMerge("h-[18px] w-[27px]"),
   },
   {
-    name: "repost",
+    name: "retweet",
     text: "Make a Repost",
     icon: "circleArrows",
     iconClassName: twMerge("h-2.5 w-5"),
+  },
+  {
+    name: "verifying",
+    text: "Verifying",
+    icon: "search",
+    iconClassName: twMerge("size-6"),
   },
   {
     name: "issueSBT",
