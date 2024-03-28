@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 import { Button } from "shared/ui/button";
 import { Icon } from "shared/ui/icon";
 
@@ -12,14 +10,11 @@ export const StepX = () => {
         <Icon className="text-white" name="checkCircle" />
       </Button>
       <Button
-        as={Link}
+        as={"a"}
         className="max-w-[266px] whitespace-nowrap text-sm"
-        onClick={() => {
-          //
-        }}
+        href={`${import.meta.env.VITE_GRAPHQL_SERVER}/auth`}
         target="_blank"
         theme="oxfordBlue"
-        to={`${import.meta.env.VITE_AUTH_URL}/auth`}
       >
         Connect X (Twitter)
       </Button>

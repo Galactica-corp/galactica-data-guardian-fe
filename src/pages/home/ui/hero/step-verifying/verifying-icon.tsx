@@ -59,7 +59,7 @@ export const VerifyingIcon = ({
         <motion.img
           alt="circle"
           animate={animate}
-          className="absolute"
+          className="absolute select-none"
           src={circlePng}
           transition={spinTransition}
         />

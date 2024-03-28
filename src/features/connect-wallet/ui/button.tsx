@@ -1,5 +1,4 @@
 import { ComponentProps, PropsWithChildren } from "react";
-import { MetaMaskAvatar } from "react-metamask-avatar";
 
 import { twMerge } from "tailwind-merge";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
@@ -39,10 +38,7 @@ export const ConnectButton = ({
       {(isDisconnected || isConnecting) && children}
 
       {isConnected && (
-        <>
-          <span className="mr-1.5">{shortAddress(address, 7, 5)}</span>
-          {address && <MetaMaskAvatar address={address} />}
-        </>
+        <span className="mr-1.5">{shortAddress(address, 7, 5)}</span>
       )}
     </Button>
   );

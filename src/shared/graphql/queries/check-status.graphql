@@ -1,7 +1,3 @@
 query CheckStatus {
   checkStatus
-  verificationProgress {
-    followState
-    retweetState
-  }
 }

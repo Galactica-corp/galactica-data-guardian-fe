@@ -1,67 +1,67 @@
+import { ClientError } from "graphql-request";
 import { useAccount } from "wagmi";
 
 import { Footer } from "pages/home/ui/footer";
 import { Header } from "pages/home/ui/header";
-import { useCheckStatusQuery } from "shared/graphql";
 
 import { Step } from "./const";
+import { useStatus } from "./hooks/useStatus";
 import { Hero } from "./ui/hero/hero";
 
-export const Home = () => {
+const useStep = (): { step: Step } => {
   const { isConnected } = useAccount();
 
-  const { data, error } = useCheckStatusQuery(undefined, {
-    enabled: isConnected,
-  });
+  const { status, query } = useStatus();
+  const error = query.error;
 
   const isUnauth =
-    error instanceof Error && error.message.includes("unauthenticated");
+    error instanceof ClientError &&
+    error.response.errors?.[0].message === "unauthenticated";
 
-  let currentStep: Step = "metamask";
+  let step: Step = "metamask";
 
-  if (isUnauth || !data) {
-    currentStep = "x";
+  if (isConnected && (isUnauth || !status)) {
+    step = "x";
   }
 
-  if (!data) {
-    // TOOD: SENTRY
-    return;
+  if (status === "WALLET_NOT_BOUND" || status === "FOLLOW_NOT_CONFIRMED") {
+    step = "followGalactica";
   }
 
-  if (data.checkStatus === "FOLLOW_NOT_CONFIRMED") {
-    currentStep = "followGalactica";
+  if (status === "FOLLOW_CONFIRMED") {
+    step = "retweet";
   }
 
-  if (data.checkStatus === "FOLLOW_CONFIRMED") {
-    currentStep = "retweet";
+  if (status === "VERIFICATION") {
+    step = "verifying";
   }
 
-  if (data.checkStatus === "VERIFICATION") {
-    currentStep = "verifying";
+  if (status === "SBT_ISSUE_IN_PROGRESS" || status === "SBT_ISSUE_FAILED") {
+    step = "issueSBT";
   }
 
-  if (data.checkStatus === "SBT_ISSUE_IN_PROGRESS") {
-    currentStep = "issueSBT";
+  if (status === "SBT_ISSUE_COMPLETE") {
+    step = "receiveSBT";
   }
 
-  if (data.checkStatus === "SBT_ISSUE_FAILED") {
-    // TODO: А что тут?
-  }
+  return { step };
+};
 
-  if (data.checkStatus === "SBT_ISSUE_COMPLETE") {
-    currentStep = "receiveSBT";
-  }
+export const Home = () => {
+  const { step } = useStep();
 
   return (
     <div className="relative flex min-h-full grow flex-col bg-main bg-cover bg-top bg-no-repeat px-28 pt-[18px]">
       <Header />
       <Hero
         className="mt-auto"
-        followStatus={data.verificationProgress.followState}
-        retweetStatus={data.verificationProgress.retweetState}
-        step={currentStep}
+        // followStatus={data?.verificationProgress.followState}
+        // retweetStatus={data?.verificationProgress.retweetState}
+        followStatus="PENDING"
+        retweetStatus="PENDING"
+        step={step}
       />
-      <Footer className="mb-16 mt-auto" step={currentStep} />
+      <Footer className="mb-16 mt-auto" step={step} />
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import { useStatus } from "pages/home/hooks/useStatus";
 import { Button } from "shared/ui/button";
 
 import { StepContent } from "../step-content";
@@ -57,12 +58,16 @@ const followDescriptionRender = (followStatus: Status) => {
 };
 
 export const StepVerifying = ({ followStatus, retweetStatus }: Props) => {
+  const { setStatus } = useStatus();
   const followTitle = followTitles[followStatus];
   const retweetTitle = retweetTitles[retweetStatus];
 
   return (
-    <StepContent title="Verifying...">
-      <div className="mt-10 flex justify-center gap-x-20">
+    <StepContent
+      contentClassName="mt-10 flex justify-center gap-x-20"
+      title="Verifying..."
+    >
+      <>
         <StatusContent
           description={followDescriptionRender(followStatus)}
           title={followTitle}
@@ -84,7 +89,16 @@ export const StepVerifying = ({ followStatus, retweetStatus }: Props) => {
             status={retweetStatus}
           />
         </StatusContent>
-      </div>
+
+        <button
+          className="absolute left-1/2 top-0"
+          onClick={() => {
+            setStatus("SBT_ISSUE_IN_PROGRESS");
+          }}
+        >
+          continue process...
+        </button>
+      </>
     </StepContent>
   );
 };

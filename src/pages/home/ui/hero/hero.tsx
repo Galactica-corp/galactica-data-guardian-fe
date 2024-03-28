@@ -14,8 +14,8 @@ import { Status } from "./step-verifying/types";
 import { StepX } from "./step-x";
 
 type Props = {
-  followStatus: Status;
-  retweetStatus: Status;
+  followStatus?: Status;
+  retweetStatus?: Status;
   step: Step;
 } & ClassName;
 
@@ -27,7 +27,7 @@ export const Hero = ({
 }: Props) => {
   return (
     <div className={twMerge("text-center", className)}>
-      <div className="inline-flex w-auto items-center gap-x-1.5 rounded-md bg-white px-2 py-0.5 inner-border inner-border-mischka">
+      <div className="mb-4 inline-flex w-auto items-center gap-x-1.5 rounded-md bg-white px-2 py-0.5 inner-border inner-border-mischka">
         <Icon className="size-[14px]" name="galactica" safeArea="0" />
         <span className="inline-flex text-sm font-medium text-oxfordBlue">
           Powered by Galactica.com
@@ -37,7 +37,7 @@ export const Hero = ({
       {step === "x" && <StepX />}
       {step === "followGalactica" && <StepFollowGalactica />}
       {step === "retweet" && <StepRetweet />}
-      {step === "verifying" && (
+      {step === "verifying" && followStatus && retweetStatus && (
         <StepVerifying
           followStatus={followStatus}
           retweetStatus={retweetStatus}
