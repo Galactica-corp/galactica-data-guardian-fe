@@ -16,9 +16,14 @@ export const StepReceiveSBT = () => {
       <div className="flex size-[200px] items-center justify-center rounded-md bg-white p-2 inner-border inner-border-mischka">
         {isLoading && <Spinner />}
         <img
+          className="flex size-full"
+          onError={() => {
+            setIsLoading(false);
+          }}
           onLoad={() => {
             setIsLoading(false);
           }}
+          src="/assets/sbt.png"
         />
       </div>
       <Button

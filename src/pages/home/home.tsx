@@ -48,7 +48,7 @@ const useStep = () => {
   }
 
   return {
-    step,
+    step: "receiveSBT",
     retweetState,
     followState,
   };
