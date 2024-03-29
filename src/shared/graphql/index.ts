@@ -121,7 +121,15 @@ export type IssueSbtMutation = {
 
 export type CheckStatusQueryVariables = Exact<{ [key: string]: never }>;
 
-export type CheckStatusQuery = { __typename?: "Query"; checkStatus: Status };
+export type CheckStatusQuery = {
+  __typename?: "Query";
+  checkStatus: Status;
+  verificationProgress: {
+    __typename?: "VerificationProgressResponse";
+    followState: State;
+    retweetState: State;
+  };
+};
 
 export const BindWalletToTwitterAccountDocument = `
     mutation BindWalletToTwitterAccount($walletAddress: String!) {
@@ -258,6 +266,10 @@ export const useIssueSbtMutation = <TError = unknown, TContext = unknown>(
 export const CheckStatusDocument = `
     query CheckStatus {
   checkStatus
+  verificationProgress {
+    followState
+    retweetState
+  }
 }
     `;
 
