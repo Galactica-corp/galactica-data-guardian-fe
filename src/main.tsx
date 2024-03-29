@@ -10,6 +10,8 @@ const root = createRoot(container!);
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 window.api = {
+  VITE_API_ENDPOINT: import.meta.env.VITE_API_ENDPOINT,
+  VITE_AUTH_URL: import.meta.env.VITE_AUTH_URL,
   VITE_GRAPHQL_SERVER: import.meta.env.VITE_GRAPHQL_SERVER,
 };
 

@@ -4,7 +4,9 @@ import { Spinner } from "shared/ui/spinner";
 import { StepContent } from "./step-content";
 
 export const StepIssueSBT = () => {
-  const { status, setStatus } = useStatus();
+  const { data, setStatus } = useStatus();
+  const status = data?.checkStatus;
+
   return (
     <StepContent title="Get your TestNet X SBT">
       <div className="flex flex-col items-center" onClick={() => {}}>

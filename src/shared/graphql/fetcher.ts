@@ -10,7 +10,13 @@ interface GraphQLClientResponse<Data> {
 }
 
 const client = new GraphQLClient(
-  `${import.meta.env.VITE_GRAPHQL_SERVER}/query`
+  `${import.meta.env.VITE_GRAPHQL_SERVER}/query`,
+  {
+    requestMiddleware: (request) => {
+      request.credentials = "include";
+      return request;
+    },
+  }
 );
 
 export const graphqlRequestFetcher =
@@ -24,6 +30,9 @@ export const graphqlRequestFetcher =
       ${query}
     `;
 
-    const result: TData = await client.request(document, variables, options);
+    const result: TData = await client.request(document, variables, {
+      "Content-Type": "application/json",
+      ...options,
+    });
     return result;
   };

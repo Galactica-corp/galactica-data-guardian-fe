@@ -11,8 +11,9 @@ import { Hero } from "./ui/hero/hero";
 const useStep = (): { step: Step } => {
   const { isConnected } = useAccount();
 
-  const { status, query } = useStatus();
+  const { data, query } = useStatus();
   const error = query.error;
+  const status = data?.checkStatus;
 
   const isUnauth =
     error instanceof ClientError &&
