@@ -9,7 +9,9 @@ interface GraphQLClientResponse<Data> {
   errors?: GraphQLError[];
 }
 
-const client = new GraphQLClient(`${import.meta.env.VITE_API_ENDPOINT}`);
+const client = new GraphQLClient(
+  `${import.meta.env.VITE_GRAPHQL_SERVER}/query`
+);
 
 export const graphqlRequestFetcher =
   <TData, TVariables extends Variables>(

@@ -33,15 +33,15 @@ export default defineConfig(({ mode }) => {
           typescript: true,
         }),
     ],
-    server: {
-      proxy: {
-        "/api": {
-          target: env.VITE_GRAPHQL_SERVER,
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ""),
-        },
-      },
-    },
+    // server: {
+    //   proxy: {
+    //     "/api": {
+    //       target: env.VITE_GRAPHQL_SERVER,
+    //       changeOrigin: true,
+    //       rewrite: (path) => path.replace(/^\/api/, ""),
+    //     },
+    //   },
+    // },
     resolve: {
       alias: process.env.PROFILER
         ? [
