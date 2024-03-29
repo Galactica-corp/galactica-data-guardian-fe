@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import { ClientError } from "graphql-request";
 import { useAccount } from "wagmi";
 
@@ -49,15 +47,15 @@ const useStep = () => {
     step = "receiveSBT";
   }
 
-  return { step, retweetState, followState };
+  return {
+    step: "receiveSBT",
+    retweetState: "PENDING",
+    followState: "PENDING",
+  };
 };
 
 export const Home = () => {
   const { step, retweetState, followState } = useStep();
-
-  useEffect(() => {
-    parent.postMessage("galactica-open", "*");
-  }, []);
 
   return (
     <div className="relative flex min-h-full grow flex-col bg-main bg-cover bg-top bg-no-repeat px-28 pt-[18px]">

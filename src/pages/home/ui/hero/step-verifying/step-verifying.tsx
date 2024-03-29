@@ -33,11 +33,7 @@ const retweetDescriptionRender = (retweetStatus: Status) => {
 
   if (retweetStatus === "CONFIRMED") return "You have reposted!";
 
-  return (
-    <span className="text-sm text-oxfordBlue text-opacity-60">
-      <span className="font-semibold">15</span> sec left
-    </span>
-  );
+  return "Please wait";
 };
 
 const followDescriptionRender = (followStatus: Status) => {
@@ -50,11 +46,7 @@ const followDescriptionRender = (followStatus: Status) => {
 
   if (followStatus === "CONFIRMED") return "You are a follower!";
 
-  return (
-    <span className="text-sm">
-      <span className="font-semibold">15</span> sec left
-    </span>
-  );
+  return "Please wait";
 };
 
 export const StepVerifying = ({ followStatus, retweetStatus }: Props) => {
@@ -64,10 +56,16 @@ export const StepVerifying = ({ followStatus, retweetStatus }: Props) => {
 
   return (
     <StepContent
-      contentClassName="mt-10 flex justify-center gap-x-20"
-      title="Verifying..."
+      contentClassName="mt-3 flex flex-col items-center"
+      title="You’re all done"
     >
-      <>
+      <p className="max-w-[862px] text-sm font-medium text-oxfordBlue">
+        We are now verifying your actions. Normally it takes up to 10 minutes,
+        but may take more in case of a huge load. You will recieve an SBT once
+        we finish. You can close this page and monitor your wallet or come back
+        to this app later.
+      </p>
+      <div className="mt-10 flex gap-x-20">
         <StatusContent
           description={followDescriptionRender(followStatus)}
           title={followTitle}
@@ -89,7 +87,7 @@ export const StepVerifying = ({ followStatus, retweetStatus }: Props) => {
             status={retweetStatus}
           />
         </StatusContent>
-      </>
+      </div>
     </StepContent>
   );
 };

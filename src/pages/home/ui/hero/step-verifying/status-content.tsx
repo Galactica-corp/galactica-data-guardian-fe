@@ -15,7 +15,9 @@ export const StatusContent = ({
       {children}
       <div className="flex flex-col text-oxfordBlue">
         <h3 className="flex text-[22px] leading-5">{title}</h3>
-        <p className="mt-1.5 flex text-sm font-medium">{description}</p>
+        <p className="mt-1.5 flex text-sm font-medium text-oxfordBlue text-opacity-60">
+          {description}
+        </p>
       </div>
     </div>
   );

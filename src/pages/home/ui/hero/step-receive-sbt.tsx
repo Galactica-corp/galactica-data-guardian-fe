@@ -1,16 +1,31 @@
+import { useState } from "react";
+
 import { Button } from "shared/ui/button";
 import { Icon } from "shared/ui/icon";
+import { Spinner } from "shared/ui/spinner";
 
 import { StepContent } from "./step-content";
 
 export const StepReceiveSBT = () => {
+  const [isLoading, setIsLoading] = useState(true);
   return (
-    <StepContent title="Your SBT is issued!">
-      <Button className="w-[266px] text-sm font-semibold" theme="white">
-        View in Explorer <Icon className="ml-2" name="link" />
-      </Button>
-      <Button className="w-[266px] text-sm font-medium">
-        Back to Galactica <Icon className="ml-2" name="backArrow" />
+    <StepContent
+      contentClassName="flex-col items-center"
+      title="Your SBT is issued!"
+    >
+      <div className="flex size-[200px] items-center justify-center rounded-md bg-white p-2 inner-border inner-border-mischka">
+        {isLoading && <Spinner />}
+        <img
+          onLoad={() => {
+            setIsLoading(false);
+          }}
+        />
+      </div>
+      <Button
+        className="mt-4 w-[266px] items-center text-sm font-semibold"
+        theme="white"
+      >
+        View in Explorer <Icon className="ml-2 size-5" name="link" />
       </Button>
     </StepContent>
   );

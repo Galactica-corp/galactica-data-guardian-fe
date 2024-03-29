@@ -12,23 +12,8 @@ export const StepX = () => {
       <Button
         as={"a"}
         className="max-w-[266px] whitespace-nowrap text-sm"
-        onClick={() => {
-          const width = 600;
-          const height = 600;
-          const left = window.innerWidth / 2 - width / 2;
-          const top = window.innerHeight / 2 - height / 2;
-          const newWindow = window.open(
-            import.meta.env.VITE_AUTH_URL,
-            "",
-            `toolbar=no, location=no, directories=no, status=no, menubar=no,
-          scrollbars=no, resizable=no, copyhistory=no, width=${width},
-          height=${height}, top=${top}, left=${left}`
-          );
-
-          window.addEventListener("message", (event) => {
-            console.log(event);
-          });
-        }}
+        href={import.meta.env.VITE_AUTH_URL}
+        referrerPolicy="no-referrer"
         theme="oxfordBlue"
       >
         Connect X (Twitter)

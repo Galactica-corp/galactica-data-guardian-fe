@@ -38,7 +38,7 @@ export const ConnectButton = ({
       {(isDisconnected || isConnecting) && children}
 
       {isConnected && (
-        <span className="mr-1.5">{shortAddress(address, 7, 5)}</span>
+        <span className="mr-1.5">{shortAddress(address, 9, 8)}</span>
       )}
     </Button>
   );
