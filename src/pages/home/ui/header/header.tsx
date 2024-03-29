@@ -16,10 +16,22 @@ export const Header = ({ className, buttonClassName }: Props) => {
       <Logo />
       <ul className="ml-10 flex gap-x-8">
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink
+            referrerPolicy="no-referrer"
+            target="_blank"
+            to="https://app-andromeda.galactica.com/"
+          >
+            Home
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/home">FAQ</NavLink>
+          <NavLink
+            referrerPolicy="no-referrer"
+            target="_blank"
+            to="https://docs.galactica.com/galactica-network-faq"
+          >
+            FAQ
+          </NavLink>
         </li>
       </ul>
 
