@@ -58,9 +58,7 @@ const followDescriptionRender = (followStatus: Status) => {
 };
 
 export const StepVerifying = ({ followStatus, retweetStatus }: Props) => {
-  const { setStatus } = useStatus({
-    refetchInterval: 5000,
-  });
+  useStatus({ refetchInterval: 5000 });
   const followTitle = followTitles[followStatus];
   const retweetTitle = retweetTitles[retweetStatus];
 
