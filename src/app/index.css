@@ -14,7 +14,7 @@
 
   body {
     font-family: "Inter", sans-serif;
-    @apply text-mineShaft min-h-full h-full bg-[#E8EFF2];
+    @apply text-mineShaft min-h-full h-full;
   }
 
   #app {
