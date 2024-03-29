@@ -6,7 +6,7 @@ import { useAccount } from "wagmi";
 import { CheckStatusQuery, Status, useCheckStatusQuery } from "shared/graphql";
 
 export const useStatus = <TData = CheckStatusQuery>(
-  options?: UseQueryOptions<CheckStatusQuery, Error, TData>
+  options?: Omit<UseQueryOptions<CheckStatusQuery, Error, TData>, "queryKey">
 ) => {
   const { isConnected } = useAccount();
   const queryClient = useQueryClient();

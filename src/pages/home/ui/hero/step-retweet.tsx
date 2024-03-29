@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 import { useLocalStorage } from "@uidotdev/usehooks";
 
 import { useStatus } from "pages/home/hooks/useStatus";

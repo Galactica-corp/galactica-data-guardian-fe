@@ -58,7 +58,9 @@ const followDescriptionRender = (followStatus: Status) => {
 };
 
 export const StepVerifying = ({ followStatus, retweetStatus }: Props) => {
-  const { setStatus } = useStatus();
+  const { setStatus } = useStatus({
+    refetchInterval: 5000,
+  });
   const followTitle = followTitles[followStatus];
   const retweetTitle = retweetTitles[retweetStatus];
 
@@ -89,15 +91,6 @@ export const StepVerifying = ({ followStatus, retweetStatus }: Props) => {
             status={retweetStatus}
           />
         </StatusContent>
-
-        <button
-          className="absolute left-1/2 top-0"
-          onClick={() => {
-            setStatus("SBT_ISSUE_IN_PROGRESS");
-          }}
-        >
-          continue process...
-        </button>
       </>
     </StepContent>
   );
