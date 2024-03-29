@@ -14,7 +14,7 @@ export const StepIssueSBT = () => {
         <span className="mt-4 whitespace-pre-line text-sm font-medium">
           {status === "SBT_ISSUE_IN_PROGRESS"
             ? "Issuing your SBT..."
-            : "SBT generation is temporarily unavailable.\nWe`re working on the issue. Please try again later."}
+            : "SBT generation takes longer than expected.\nWe’re working on the issue. Please check again later."}
         </span>
 
         <button
