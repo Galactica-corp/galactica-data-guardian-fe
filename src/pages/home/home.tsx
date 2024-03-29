@@ -8,12 +8,14 @@ import { Step } from "./const";
 import { useStatus } from "./hooks/useStatus";
 import { Hero } from "./ui/hero/hero";
 
-const useStep = (): { step: Step } => {
+const useStep = () => {
   const { isConnected } = useAccount();
 
   const { data, query } = useStatus();
   const error = query.error;
   const status = data?.checkStatus;
+  const followState = data?.verificationProgress.followState;
+  const retweetState = data?.verificationProgress.retweetState;
 
   const isUnauth =
     error instanceof ClientError &&
@@ -45,21 +47,19 @@ const useStep = (): { step: Step } => {
     step = "receiveSBT";
   }
 
-  return { step };
+  return { step, retweetState, followState };
 };
 
 export const Home = () => {
-  const { step } = useStep();
+  const { step, retweetState, followState } = useStep();
 
   return (
     <div className="relative flex min-h-full grow flex-col bg-main bg-cover bg-top bg-no-repeat px-28 pt-[18px]">
       <Header />
       <Hero
         className="mt-auto"
-        // followStatus={data?.verificationProgress.followState}
-        // retweetStatus={data?.verificationProgress.retweetState}
-        followStatus="PENDING"
-        retweetStatus="PENDING"
+        followStatus={followState}
+        retweetStatus={retweetState}
         step={step}
       />
       <Footer className="mb-16 mt-auto" step={step} />
