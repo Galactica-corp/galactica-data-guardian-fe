@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { useLocalStorage } from "@uidotdev/usehooks";
 
 import { useStatus } from "pages/home/hooks/useStatus";
@@ -37,10 +39,13 @@ export const StepRetweet = () => {
     >
       {!isProcessInit && (
         <Button
+          as={"a"}
           className="shadow-xs w-64 text-sm"
+          href="https://twitter.com/GalacticaNet/status/1772756575922336217"
           onClick={() => {
             setIsProcessInit(true);
           }}
+          referrerPolicy="no-referrer"
           theme="oxfordBlue"
         >
           Make a retweet
@@ -51,7 +56,7 @@ export const StepRetweet = () => {
           <Button
             as="a"
             className="w-[266px] text-sm"
-            href="#"
+            href="https://twitter.com/GalacticaNet/status/1772756575922336217"
             referrerPolicy="no-referrer"
             theme="white"
           >

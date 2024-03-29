@@ -57,7 +57,8 @@ export const StepFollowGalactica = () => {
         <Button
           as="a"
           className="shadow-xs w-64 text-sm"
-          href="#"
+          // TODO: utm metrics
+          href="https://twitter.com/GalacticaNet"
           onClick={() => {
             setIsProcessInit(true);
           }}
