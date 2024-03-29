@@ -4,6 +4,7 @@ import { Icon } from "shared/ui/icon";
 import { StepContent } from "./step-content";
 
 export const StepX = () => {
+  console.log(import.meta.env.VITE_GRAPHQL_SERVER);
   return (
     <StepContent title="Get your TestNet X SBT">
       <Button className="min-w-9 px-0" disabled>
