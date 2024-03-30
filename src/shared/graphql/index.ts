@@ -52,6 +52,7 @@ export type Mutation = {
   bindWalletToTwitterAccount: ConfirmationResponse;
   confirmFollow: ConfirmationResponse;
   confirmRetweet: ConfirmationResponse;
+  /** @deprecated Use verificationProgress instead */
   issueSBT: IssueSbtResponse;
 };
 
@@ -80,6 +81,8 @@ export type VerificationProgressResponse = {
   __typename?: "VerificationProgressResponse";
   followState: State;
   retweetState: State;
+  sbtState: State;
+  transactionHash: Maybe<Scalars["String"]["output"]>;
 };
 
 export type BindWalletToTwitterAccountMutationVariables = Exact<{
@@ -128,6 +131,8 @@ export type CheckStatusQuery = {
     __typename?: "VerificationProgressResponse";
     followState: State;
     retweetState: State;
+    sbtState: State;
+    transactionHash: string | null;
   };
 };
 
@@ -269,6 +274,8 @@ export const CheckStatusDocument = `
   verificationProgress {
     followState
     retweetState
+    sbtState
+    transactionHash
   }
 }
     `;

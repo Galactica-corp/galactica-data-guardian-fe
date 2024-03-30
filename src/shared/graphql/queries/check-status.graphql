@@ -3,5 +3,7 @@ query CheckStatus {
   verificationProgress {
     followState
     retweetState
+    sbtState
+    transactionHash
   }
 }
