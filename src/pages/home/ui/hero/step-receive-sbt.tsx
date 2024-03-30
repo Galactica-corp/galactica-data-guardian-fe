@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { useStatus } from "pages/home/hooks/useStatus";
 import { Button } from "shared/ui/button";
 import { Icon } from "shared/ui/icon";
 import { Spinner } from "shared/ui/spinner";
 
 import { StepContent } from "./step-content";
 
-export const StepReceiveSBT = () => {
+type Props = {
+  txHash: string;
+};
+
+export const StepReceiveSBT = ({ txHash }: Props) => {
   const [isLoading, setIsLoading] = useState(true);
-  const { data } = useStatus();
-  const txHash = data?.verificationProgress.transactionHash;
 
   return (
     <StepContent

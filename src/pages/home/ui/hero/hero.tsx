@@ -17,6 +17,7 @@ type Props = {
   followStatus?: Status;
   retweetStatus?: Status;
   step: Step;
+  txHash?: null | string;
 } & ClassName;
 
 export const Hero = ({
@@ -24,6 +25,7 @@ export const Hero = ({
   step,
   followStatus,
   retweetStatus,
+  txHash,
 }: Props) => {
   return (
     <div className={twMerge("text-center", className)}>
@@ -44,7 +46,7 @@ export const Hero = ({
         />
       )}
       {step === "issueSBT" && <StepIssueSBT />}
-      {step === "receiveSBT" && <StepReceiveSBT />}
+      {step === "receiveSBT" && txHash && <StepReceiveSBT txHash={txHash} />}
     </div>
   );
 };

@@ -16,6 +16,7 @@ const useStep = () => {
   const status = data?.checkStatus;
   const followState = data?.verificationProgress.followState;
   const retweetState = data?.verificationProgress.retweetState;
+  const txHash = data?.verificationProgress.transactionHash;
 
   const isUnauth =
     error instanceof ClientError &&
@@ -51,11 +52,12 @@ const useStep = () => {
     step,
     retweetState,
     followState,
+    txHash,
   };
 };
 
 export const Home = () => {
-  const { step, retweetState, followState } = useStep();
+  const { step, retweetState, followState, txHash } = useStep();
 
   return (
     <div className="relative flex min-h-full grow flex-col bg-main bg-cover bg-top bg-no-repeat px-28 pt-[18px]">
@@ -65,6 +67,7 @@ export const Home = () => {
         followStatus={followState}
         retweetStatus={retweetState}
         step={step}
+        txHash={txHash}
       />
       <Footer className="mb-16 mt-auto" step={step} />
     </div>
