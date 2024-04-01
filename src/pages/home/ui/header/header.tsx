@@ -15,22 +15,6 @@ type Props = {
 } & ClassName;
 
 export const Header = ({ className, step }: Props) => {
-  const mutation = useCleansingMutation();
-  const queryClient = useQueryClient();
-
-  const handleClick = () => {
-    mutation.mutate(
-      {},
-      {
-        onSuccess: async () => {
-          await queryClient.invalidateQueries({
-            queryKey: useCheckStatusQuery.getKey(),
-          });
-        },
-      }
-    );
-  };
-
   return (
     <nav className={twMerge("flex items-center bg-transparent", className)}>
       <Logo />
@@ -58,9 +42,9 @@ export const Header = ({ className, step }: Props) => {
       {step !== "x" && step !== "receiveSBT" && (
         <div className="ml-auto flex items-center gap-x-8">
           <Button
+            as="a"
             className={twMerge("py-2.5 text-sm leading-6")}
-            isLoading={mutation.isPending}
-            onClick={handleClick}
+            href={`${import.meta.env.VITE_GRAPHQL_SERVER}/backend_url/logout`}
             theme="white"
           >
             Logout

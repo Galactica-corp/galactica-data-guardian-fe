@@ -9,7 +9,7 @@ export const StepX = () => {
       <Button
         as={"a"}
         className="max-w-[266px] whitespace-nowrap text-sm"
-        href={import.meta.env.VITE_AUTH_URL}
+        href={`${import.meta.env.VITE_AUTH_URL}/auth`}
         referrerPolicy="no-referrer"
         theme="oxfordBlue"
       >
