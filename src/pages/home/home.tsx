@@ -9,7 +9,7 @@ import { useStatus } from "./hooks/useStatus";
 import { Hero } from "./ui/hero/hero";
 
 const useStep = () => {
-  const { isConnected } = useAccount();
+  const { isDisconnected } = useAccount();
 
   const { data, query } = useStatus();
   const error = query.error;
@@ -22,10 +22,14 @@ const useStep = () => {
     error instanceof ClientError &&
     error.response.errors?.[0].message === "unauthenticated";
 
-  let step: Step = "metamask";
+  let step: Step = "x";
 
-  if (isConnected && (isUnauth || !status)) {
+  if (isUnauth) {
     step = "x";
+  }
+
+  if (isDisconnected && !isUnauth) {
+    step = "metamask";
   }
 
   if (status === "WALLET_NOT_BOUND" || status === "FOLLOW_NOT_CONFIRMED") {

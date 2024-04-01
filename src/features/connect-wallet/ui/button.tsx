@@ -1,7 +1,7 @@
 import { ComponentProps, PropsWithChildren } from "react";
 
 import { twMerge } from "tailwind-merge";
-import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { useAccount, useConnect, useDisconnect, useSwitchChain } from "wagmi";
 
 import { Button } from "shared/ui/button";
 import { shortAddress } from "shared/web3/utils";
@@ -11,8 +11,10 @@ export const ConnectButton = ({
   className,
   ...props
 }: PropsWithChildren<ComponentProps<typeof Button>>) => {
-  const { address, isConnected, isDisconnected, isConnecting } = useAccount();
+  const { address, isConnected, isDisconnected, isConnecting, chain } =
+    useAccount();
   const { disconnect } = useDisconnect();
+  const { switchChain } = useSwitchChain();
   const { connect, connectors } = useConnect();
 
   const onClick = () => {
