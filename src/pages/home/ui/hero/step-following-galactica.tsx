@@ -10,7 +10,7 @@ import { Button } from "shared/ui/button";
 
 import { StepContent } from "./step-content";
 
-const followLink = "https://twitter.com/GalacticaNet";
+const followLink = "https://twitter.com/isminakov";
 
 export const StepFollowGalactica = () => {
   const { setStatus } = useStatus();
