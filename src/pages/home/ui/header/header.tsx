@@ -55,7 +55,7 @@ export const Header = ({ className, step }: Props) => {
         </li>
       </ul>
 
-      {step !== "x" && (
+      {step !== "x" && step !== "receiveSBT" && (
         <div className="ml-auto flex items-center gap-x-8">
           <Button
             className={twMerge("py-2.5 text-sm leading-6")}
