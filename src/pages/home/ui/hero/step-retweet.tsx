@@ -6,6 +6,9 @@ import { Button } from "shared/ui/button";
 
 import { StepContent } from "./step-content";
 
+const retweetLink =
+  "https://twitter.com/GalacticaNet/status/1772756575922336217";
+
 export const StepRetweet = () => {
   const [isProcessInit, setIsProcessInit] = useLocalStorage(
     "is-retweet-process-init",
@@ -39,7 +42,7 @@ export const StepRetweet = () => {
         <Button
           as={"a"}
           className="shadow-xs w-64 text-sm"
-          href="https://twitter.com/GalacticaNet/status/1772756575922336217"
+          href={retweetLink}
           onClick={() => {
             setIsProcessInit(true);
           }}
@@ -54,7 +57,7 @@ export const StepRetweet = () => {
           <Button
             as="a"
             className="w-[266px] text-sm"
-            href="https://twitter.com/GalacticaNet/status/1772756575922336217"
+            href={retweetLink}
             referrerPolicy="no-referrer"
             theme="white"
           >

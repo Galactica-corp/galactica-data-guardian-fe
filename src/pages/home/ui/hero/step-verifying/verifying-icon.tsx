@@ -20,7 +20,7 @@ const spinTransition = {
   repeat: Infinity,
 };
 
-const animate = { rotate: 360 };
+const animate = { rotate: -360 };
 
 const icons: (pendingIconName: IconName) => Record<Status, ReactNode> = (
   pendingIconName

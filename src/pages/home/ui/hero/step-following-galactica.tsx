@@ -10,6 +10,8 @@ import { Button } from "shared/ui/button";
 
 import { StepContent } from "./step-content";
 
+const followLink = "https://twitter.com/GalacticaNet";
+
 export const StepFollowGalactica = () => {
   const { setStatus } = useStatus();
   const { address } = useAccount();
@@ -58,7 +60,7 @@ export const StepFollowGalactica = () => {
           as="a"
           className="shadow-xs w-64 text-sm"
           // TODO: utm metrics
-          href="https://twitter.com/GalacticaNet"
+          href={followLink}
           onClick={() => {
             setIsProcessInit(true);
           }}
@@ -75,7 +77,7 @@ export const StepFollowGalactica = () => {
           <Button
             as="a"
             className="w-[266px] text-sm"
-            href="#"
+            href={followLink}
             referrerPolicy="no-referrer"
             theme="white"
           >
