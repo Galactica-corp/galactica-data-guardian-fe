@@ -41,19 +41,19 @@ export type ConfirmationResponse = {
   success: Scalars["Boolean"]["output"];
 };
 
-export type IssueSbtResponse = {
-  __typename?: "IssueSBTResponse";
-  success: Scalars["Boolean"]["output"];
-  transactionHash: Maybe<Scalars["String"]["output"]>;
+export type InfoResponse = {
+  __typename?: "InfoResponse";
+  twitterIdToFollow: Scalars["String"]["output"];
+  twitterIdToRetweet: Scalars["String"]["output"];
 };
 
 export type Mutation = {
   __typename?: "Mutation";
   bindWalletToTwitterAccount: ConfirmationResponse;
+  cleansing: ConfirmationResponse;
   confirmFollow: ConfirmationResponse;
   confirmRetweet: ConfirmationResponse;
-  /** @deprecated Use verificationProgress instead */
-  issueSBT: IssueSbtResponse;
+  forceMint: ConfirmationResponse;
 };
 
 export type MutationBindWalletToTwitterAccountArgs = {
@@ -63,6 +63,7 @@ export type MutationBindWalletToTwitterAccountArgs = {
 export type Query = {
   __typename?: "Query";
   checkStatus: Status;
+  info: InfoResponse;
   verificationProgress: VerificationProgressResponse;
 };
 
@@ -97,6 +98,13 @@ export type BindWalletToTwitterAccountMutation = {
   };
 };
 
+export type CleansingMutationVariables = Exact<{ [key: string]: never }>;
+
+export type CleansingMutation = {
+  __typename?: "Mutation";
+  cleansing: { __typename?: "ConfirmationResponse"; success: boolean };
+};
+
 export type ConfirmFollowMutationVariables = Exact<{ [key: string]: never }>;
 
 export type ConfirmFollowMutation = {
@@ -109,17 +117,6 @@ export type ConfirmRetweetMutationVariables = Exact<{ [key: string]: never }>;
 export type ConfirmRetweetMutation = {
   __typename?: "Mutation";
   confirmRetweet: { __typename?: "ConfirmationResponse"; success: boolean };
-};
-
-export type IssueSbtMutationVariables = Exact<{ [key: string]: never }>;
-
-export type IssueSbtMutation = {
-  __typename?: "Mutation";
-  issueSBT: {
-    __typename?: "IssueSBTResponse";
-    transactionHash: string | null;
-    success: boolean;
-  };
 };
 
 export type CheckStatusQueryVariables = Exact<{ [key: string]: never }>;
@@ -167,6 +164,38 @@ export const useBindWalletToTwitterAccountMutation = <
         BindWalletToTwitterAccountMutation,
         BindWalletToTwitterAccountMutationVariables
       >(BindWalletToTwitterAccountDocument, variables)(),
+    ...options,
+  });
+};
+
+export const CleansingDocument = `
+    mutation Cleansing {
+  cleansing {
+    success
+  }
+}
+    `;
+
+export const useCleansingMutation = <TError = unknown, TContext = unknown>(
+  options?: UseMutationOptions<
+    CleansingMutation,
+    TError,
+    CleansingMutationVariables,
+    TContext
+  >
+) => {
+  return useMutation<
+    CleansingMutation,
+    TError,
+    CleansingMutationVariables,
+    TContext
+  >({
+    mutationKey: ["Cleansing"],
+    mutationFn: (variables?: CleansingMutationVariables) =>
+      graphqlRequestFetcher<CleansingMutation, CleansingMutationVariables>(
+        CleansingDocument,
+        variables
+      )(),
     ...options,
   });
 };
@@ -231,39 +260,6 @@ export const useConfirmRetweetMutation = <TError = unknown, TContext = unknown>(
         ConfirmRetweetMutation,
         ConfirmRetweetMutationVariables
       >(ConfirmRetweetDocument, variables)(),
-    ...options,
-  });
-};
-
-export const IssueSbtDocument = `
-    mutation IssueSBT {
-  issueSBT {
-    transactionHash
-    success
-  }
-}
-    `;
-
-export const useIssueSbtMutation = <TError = unknown, TContext = unknown>(
-  options?: UseMutationOptions<
-    IssueSbtMutation,
-    TError,
-    IssueSbtMutationVariables,
-    TContext
-  >
-) => {
-  return useMutation<
-    IssueSbtMutation,
-    TError,
-    IssueSbtMutationVariables,
-    TContext
-  >({
-    mutationKey: ["IssueSBT"],
-    mutationFn: (variables?: IssueSbtMutationVariables) =>
-      graphqlRequestFetcher<IssueSbtMutation, IssueSbtMutationVariables>(
-        IssueSbtDocument,
-        variables
-      )(),
     ...options,
   });
 };
