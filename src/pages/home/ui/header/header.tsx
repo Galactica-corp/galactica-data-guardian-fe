@@ -1,8 +1,6 @@
-import { useQueryClient } from "@tanstack/react-query";
 import { twMerge } from "tailwind-merge";
 
 import { Step } from "pages/home/const";
-import { useCheckStatusQuery, useCleansingMutation } from "shared/graphql";
 import { ClassName } from "shared/types";
 import { Button } from "shared/ui/button";
 import { Logo } from "shared/ui/logo";
@@ -44,7 +42,7 @@ export const Header = ({ className, step }: Props) => {
           <Button
             as="a"
             className={twMerge("py-2.5 text-sm leading-6")}
-            href={`${import.meta.env.VITE_GRAPHQL_SERVER}/backend_url/logout`}
+            href={`${import.meta.env.VITE_GRAPHQL_SERVER}/logout`}
             theme="white"
           >
             Logout

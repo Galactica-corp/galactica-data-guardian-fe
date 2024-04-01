@@ -11,8 +11,7 @@ export const ConnectButton = ({
   className,
   ...props
 }: PropsWithChildren<ComponentProps<typeof Button>>) => {
-  const { address, isConnected, isDisconnected, isConnecting, chain } =
-    useAccount();
+  const { address, isConnected, isDisconnected, isConnecting } = useAccount();
   const { disconnect } = useDisconnect();
   const { connect, connectors } = useConnect();
 
