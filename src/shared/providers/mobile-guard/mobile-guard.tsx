@@ -16,7 +16,7 @@ export const MobileGuard = ({ children }: PropsWithChildren) => {
           proceed using your desktop. <br />
           <br /> If you have any questions join our{" "}
           <a
-            className="link text-base"
+            className="text-base text-jaffa underline"
             href="https://discord.com/invite/galactica"
             rel="noreferrer"
             target="_blank"

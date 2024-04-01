@@ -47,6 +47,7 @@ export const StepRetweet = () => {
             setIsProcessInit(true);
           }}
           referrerPolicy="no-referrer"
+          target="_blank"
           theme="oxfordBlue"
         >
           Make a retweet
@@ -59,6 +60,7 @@ export const StepRetweet = () => {
             className="w-[266px] text-sm"
             href={retweetLink}
             referrerPolicy="no-referrer"
+            target="_blank"
             theme="white"
           >
             Repost on X
