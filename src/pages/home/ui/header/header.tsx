@@ -61,6 +61,7 @@ export const Header = ({ className, step }: Props) => {
             className={twMerge("py-2.5 text-sm leading-6")}
             isLoading={mutation.isPending}
             onClick={handleClick}
+            theme="white"
           >
             Logout
           </Button>
