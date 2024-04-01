@@ -7,7 +7,7 @@ import { Button } from "shared/ui/button";
 import { StepContent } from "./step-content";
 
 const retweetLink =
-  "https://twitter.com/GalacticaNet/status/1772756575922336217";
+  "https://twitter.com/GalacticaNet/status/1770487321202237737";
 
 export const StepRetweet = () => {
   const [isProcessInit, setIsProcessInit] = useLocalStorage(

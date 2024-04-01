@@ -37,7 +37,7 @@ export const Header = ({ className, step }: Props) => {
         </li>
       </ul>
 
-      {step !== "x" && step !== "receiveSBT" && (
+      {step !== "x" && (
         <div className="ml-auto flex items-center gap-x-8">
           <Button
             as="a"
