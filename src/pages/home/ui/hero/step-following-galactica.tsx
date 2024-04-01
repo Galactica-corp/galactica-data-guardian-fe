@@ -79,6 +79,7 @@ export const StepFollowGalactica = () => {
             className="w-[266px] text-sm"
             href={followLink}
             referrerPolicy="no-referrer"
+            target="_blank"
             theme="white"
           >
             Follow Galactica
