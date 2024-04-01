@@ -8,16 +8,16 @@ import { type Step } from "../../const";
 
 const stepData = [
   {
-    name: "metamask",
-    text: "Connect MetaMask",
-    icon: "metamask",
-    iconClassName: twMerge("h-[19px] w-5"),
-  },
-  {
     name: "x",
     text: "Connect X (Twitter)",
     icon: "xLogo",
     iconClassName: twMerge("size-[18px]"),
+  },
+  {
+    name: "metamask",
+    text: "Connect MetaMask",
+    icon: "metamask",
+    iconClassName: twMerge("h-[19px] w-5"),
   },
   {
     name: "followGalactica",
