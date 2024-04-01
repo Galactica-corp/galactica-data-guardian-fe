@@ -25,11 +25,21 @@ const useStep = () => {
   let step: Step = "x";
 
   if (isUnauth) {
-    step = "x";
+    return {
+      step: "x" as const,
+      retweetState,
+      followState,
+      txHash,
+    };
   }
 
-  if (isDisconnected && !isUnauth) {
-    step = "metamask";
+  if (isDisconnected) {
+    return {
+      step: "metamask" as const,
+      retweetState,
+      followState,
+      txHash,
+    };
   }
 
   if (status === "WALLET_NOT_BOUND" || status === "FOLLOW_NOT_CONFIRMED") {
