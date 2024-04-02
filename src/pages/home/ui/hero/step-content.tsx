@@ -14,7 +14,7 @@ export const StepContent = ({
 }: PropsWithChildren<Props>) => {
   return (
     <>
-      <h2 className="whitespace-nowrap text-[60px] font-semibold leading-[72px] tracking-tight text-mineShaft max-lg:text-[50px] max-sm:whitespace-normal max-sm:text-4xl">
+      <h2 className="text-[60px] font-semibold leading-[72px] tracking-tight text-mineShaft max-lg:text-[50px] max-sm:text-4xl">
         {title}
       </h2>
 

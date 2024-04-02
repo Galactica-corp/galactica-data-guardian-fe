@@ -19,7 +19,7 @@ export const StepReceiveSBT = ({ txHash }: Props) => {
       contentClassName="flex-col items-center"
       title="Your SBT is issued!"
     >
-      <div className="flex size-[200px] items-center justify-center rounded-md bg-white p-2 inner-border inner-border-mischka">
+      <div className="flex size-[200px] items-center justify-center rounded-md bg-white p-2 inner-border inner-border-mischka max-md:size-[150px]">
         {isLoading && <Spinner />}
         <img
           className="flex size-full"

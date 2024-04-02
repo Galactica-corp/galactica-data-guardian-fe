@@ -60,12 +60,11 @@ export const StepVerifying = ({ followStatus, retweetStatus }: Props) => {
       title="You’re all done"
     >
       <p className="max-w-[862px] text-sm font-medium text-oxfordBlue">
-        We are now verifying your actions. Normally it takes up to 10 minutes,
-        but may take more in case of a huge load. You will recieve an SBT once
-        we finish. You can close this page and monitor your wallet or come back
-        to this app later.
+        Your actions are under verification, which may take over 10 minutes,
+        depending on volume. Once verified, you’ll get an SBT. You can close
+        this page and check your wallet or return later.
       </p>
-      <div className="mt-10 flex gap-x-20">
+      <div className="mt-10 flex gap-x-20 max-md:flex-col max-md:gap-y-5">
         <StatusContent
           description={followDescriptionRender(followStatus)}
           title={followTitle}

@@ -54,7 +54,7 @@ export const StepRetweet = () => {
         </Button>
       )}
       {isProcessInit && (
-        <>
+        <div className="flex gap-4 max-md:flex-col">
           <Button
             as="a"
             className="w-[266px] text-sm"
@@ -72,7 +72,7 @@ export const StepRetweet = () => {
           >
             Confirm your X Repost
           </Button>
-        </>
+        </div>
       )}
     </StepContent>
   );
