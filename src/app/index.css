@@ -21,6 +21,14 @@
     @apply flex min-h-full flex-col;
   }
 
+  .hamburger-item,
+  .hamburger-item::before,
+  .hamburger-item::after {
+    @apply !bg-mineShaft hover:!bg-mineShaft !select-none;
+    border-radius: 0 !important;
+    height: 2px !important;
+  }
+
   @font-face {
     font-family: "Inter";
     src:

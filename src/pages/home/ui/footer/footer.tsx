@@ -64,54 +64,51 @@ export const Footer = ({ className, step }: Props) => {
   const activeStepIdx = stepData.findIndex((s) => s.name === step);
 
   return (
-    <footer
-      className={twMerge(
-        "relative flex items-center justify-between pb-8",
-        className
-      )}
-    >
-      {stepData.map((data, index) => {
-        const isPassed = index <= activeStepIdx;
-        const isActive = data.name === step;
+    <footer className={twMerge("pb-8 max-lg:overflow-scroll", className)}>
+      <div className="relative flex min-w-[1000px] items-center justify-between px-12 pb-2 scrollbar-thin">
+        {stepData.map((data, index) => {
+          const isPassed = index <= activeStepIdx;
+          const isActive = data.name === step;
 
-        return (
-          <Fragment key={data.name}>
-            {index !== 0 && (
-              <div
-                className={twMerge(
-                  "flex h-0.5 grow bg-iron",
-                  isPassed && "bg-jaffa"
-                )}
-              />
-            )}
-            <div
-              className={twMerge(
-                "shadow-xs relative flex size-10 items-center justify-center rounded-md bg-white inner-border",
-                isPassed ? "inner-border-jaffa/15" : "inner-border-[#EAECF0]"
+          return (
+            <Fragment key={data.name}>
+              {index !== 0 && (
+                <div
+                  className={twMerge(
+                    "flex h-0.5 grow bg-iron",
+                    isPassed && "bg-jaffa"
+                  )}
+                />
               )}
-              key={data.name}
-            >
-              <Icon
-                className={twMerge(
-                  "text-[#858C98]",
-                  isPassed && "text-jaffa",
-                  data.iconClassName
-                )}
-                name={data.icon}
-              />
               <div
                 className={twMerge(
-                  "absolute -bottom-3 left-1/2 -translate-x-1/2 translate-y-full whitespace-nowrap text-sm font-semibold text-oxfordBlue/35",
-                  isPassed && "text-jaffa/50",
-                  isActive && "text-jaffa"
+                  "shadow-xs relative flex size-10 items-center justify-center rounded-md bg-white inner-border",
+                  isPassed ? "inner-border-jaffa/15" : "inner-border-[#EAECF0]"
                 )}
+                key={data.name}
               >
-                {data.text}
+                <Icon
+                  className={twMerge(
+                    "text-[#858C98]",
+                    isPassed && "text-jaffa",
+                    data.iconClassName
+                  )}
+                  name={data.icon}
+                />
+                <div
+                  className={twMerge(
+                    "absolute -bottom-3 left-1/2 -translate-x-1/2 translate-y-full whitespace-nowrap text-sm font-semibold text-oxfordBlue/35",
+                    isPassed && "text-jaffa/50",
+                    isActive && "text-jaffa"
+                  )}
+                >
+                  {data.text}
+                </div>
               </div>
-            </div>
-          </Fragment>
-        );
-      })}
+            </Fragment>
+          );
+        })}
+      </div>
     </footer>
   );
 };

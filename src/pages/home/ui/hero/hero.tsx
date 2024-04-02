@@ -31,7 +31,7 @@ export const Hero = ({
     <div className={twMerge("text-center", className)}>
       <div className="mb-4 inline-flex w-auto items-center gap-x-1.5 rounded-md bg-white px-2 py-0.5 inner-border inner-border-mischka">
         <Icon className="size-[14px]" name="galactica" safeArea="0" />
-        <span className="inline-flex text-sm font-medium text-oxfordBlue">
+        <span className="inline-flex text-sm font-medium text-oxfordBlue max-md:text-xs">
           Powered by Galactica.com
         </span>
       </div>

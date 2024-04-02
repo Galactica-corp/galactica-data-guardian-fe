@@ -8,7 +8,7 @@ export const StepX = () => {
     <StepContent title="Get your TestNet X SBT">
       <Button
         as={"a"}
-        className="max-w-[266px] whitespace-nowrap text-sm"
+        className="w-[266px] whitespace-nowrap text-sm"
         href={`${import.meta.env.VITE_AUTH_URL}/auth`}
         referrerPolicy="no-referrer"
         theme="oxfordBlue"

@@ -1,4 +1,3 @@
-import { MobileGuard } from "shared/providers/mobile-guard";
 import { RqProvider } from "shared/providers/rq";
 import { WagmiProvider } from "shared/providers/wagmi";
 
@@ -10,9 +9,7 @@ export const App = () => {
   return (
     <WagmiProvider>
       <RqProvider>
-        <MobileGuard>
-          <AppRoutes />
-        </MobileGuard>
+        <AppRoutes />
       </RqProvider>
     </WagmiProvider>
   );

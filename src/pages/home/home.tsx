@@ -74,16 +74,21 @@ export const Home = () => {
   const { step, retweetState, followState, txHash } = useStep();
 
   return (
-    <div className="relative flex min-h-full grow flex-col bg-main bg-cover bg-top bg-no-repeat px-28 pt-[18px]">
-      <Header step={step} />
-      <Hero
-        className="mt-auto"
-        followStatus={followState}
-        retweetStatus={retweetState}
-        step={step}
-        txHash={txHash}
-      />
-      <Footer className="mb-16 mt-auto" step={step} />
-    </div>
+    <>
+      <div className="relative flex min-h-full grow flex-col bg-main bg-cover bg-top bg-no-repeat">
+        <Header className="px-28 max-xl:px-5 max-lg:px-2" step={step} />
+        <Hero
+          className="mt-auto px-28 max-lg:px-2"
+          followStatus={followState}
+          retweetStatus={retweetState}
+          step={step}
+          txHash={txHash}
+        />
+        <Footer
+          className="mb-16 mt-auto px-28 max-xl:px-5 max-lg:px-0"
+          step={step}
+        />
+      </div>
+    </>
   );
 };

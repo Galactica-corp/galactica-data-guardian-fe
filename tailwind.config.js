@@ -1,7 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  plugins: [require("tailwindcss-inner-border")],
+  plugins: [
+    require("tailwindcss-inner-border"),
+    require("tailwind-hamburgers"),
+    require("tailwind-scrollbar"),
+  ],
   theme: {
     backgroundImage: {
       main: "url('/assets/bg-galactica-dataguardian.png')",
