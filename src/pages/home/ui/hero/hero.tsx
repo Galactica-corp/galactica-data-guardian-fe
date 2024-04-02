@@ -3,6 +3,7 @@ import { twMerge } from "tailwind-merge";
 import { Step } from "pages/home/const";
 import { ClassName } from "shared/types";
 import { Icon } from "shared/ui/icon";
+import { Spinner } from "shared/ui/spinner";
 
 import { StepFollowGalactica } from "./step-following-galactica";
 import { StepIssueSBT } from "./step-issue-sbt";
@@ -35,6 +36,7 @@ export const Hero = ({
           Powered by Galactica.com
         </span>
       </div>
+      {step === "idle" && <Spinner className="mx-auto" />}
       {step === "metamask" && <StepMetamask />}
       {step === "x" && <StepX />}
       {step === "followGalactica" && <StepFollowGalactica />}

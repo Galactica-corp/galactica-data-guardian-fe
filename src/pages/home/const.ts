@@ -1,6 +1,7 @@
 export const steps = [
-  "metamask",
+  "idle",
   "x",
+  "metamask",
   "followGalactica",
   "retweet",
   "verifying",

@@ -24,6 +24,14 @@ const useStep = () => {
 
   let step: Step = "x";
 
+  if (query.isLoading)
+    return {
+      step: "idle" as const,
+      retweetState,
+      followState,
+      txHash,
+    };
+
   if (isUnauth) {
     return {
       step: "x" as const,
