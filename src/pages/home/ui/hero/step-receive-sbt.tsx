@@ -36,7 +36,7 @@ export const StepReceiveSBT = ({ txHash }: Props) => {
         as={Link}
         className="mt-4 w-[266px] items-center text-sm font-semibold"
         theme="white"
-        to={`https://explorer-andromeda.galactica.com/tx/${txHash}`}
+        to={`${import.meta.env.VITE_EXPLORER_URL}/tx/${txHash}`}
       >
         View in Explorer <Icon className="ml-2 size-5" name="link" />
       </Button>
