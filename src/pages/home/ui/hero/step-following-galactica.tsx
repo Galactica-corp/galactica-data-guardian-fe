@@ -10,7 +10,7 @@ import { Button } from "shared/ui/button";
 
 import { StepContent } from "./step-content";
 
-const followLink = "https://twitter.com/isminakov";
+const followLink = import.meta.env.VITE_FOLLOW_URL;
 
 export const StepFollowGalactica = () => {
   const { setStatus } = useStatus();
