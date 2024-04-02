@@ -9,7 +9,7 @@ import { useStatus } from "./hooks/useStatus";
 import { Hero } from "./ui/hero/hero";
 
 const useStep = () => {
-  const { isDisconnected, isConnected } = useAccount();
+  const { isConnected } = useAccount();
 
   const { data, query } = useStatus();
   const error = query.error;
@@ -24,14 +24,6 @@ const useStep = () => {
 
   let step: Step = "x";
 
-  if (query.isLoading)
-    return {
-      step: "idle" as const,
-      retweetState,
-      followState,
-      txHash,
-    };
-
   if (isUnauth) {
     return {
       step: "x" as const,
@@ -41,7 +33,7 @@ const useStep = () => {
     };
   }
 
-  if (!isConnected) {
+  if (!isConnected && status === "WALLET_NOT_BOUND") {
     return {
       step: "metamask" as const,
       retweetState,

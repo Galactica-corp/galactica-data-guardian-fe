@@ -1,6 +1,7 @@
 import { twMerge } from "tailwind-merge";
 
 import { Step } from "pages/home/const";
+import { useStatus } from "pages/home/hooks/useStatus";
 import { ClassName } from "shared/types";
 import { Icon } from "shared/ui/icon";
 import { Spinner } from "shared/ui/spinner";
@@ -28,6 +29,7 @@ export const Hero = ({
   retweetStatus,
   txHash,
 }: Props) => {
+  const { query } = useStatus();
   return (
     <div className={twMerge("text-center", className)}>
       <div className="mb-4 inline-flex w-auto items-center gap-x-1.5 rounded-md bg-white px-2 py-0.5 inner-border inner-border-mischka">
@@ -36,19 +38,25 @@ export const Hero = ({
           Powered by Galactica.com
         </span>
       </div>
-      {step === "idle" && <Spinner className="mx-auto" />}
-      {step === "metamask" && <StepMetamask />}
-      {step === "x" && <StepX />}
-      {step === "followGalactica" && <StepFollowGalactica />}
-      {step === "retweet" && <StepRetweet />}
-      {step === "verifying" && followStatus && retweetStatus && (
-        <StepVerifying
-          followStatus={followStatus}
-          retweetStatus={retweetStatus}
-        />
+      {query.isLoading && <Spinner className="mx-auto" />}
+      {!query.isLoading && (
+        <>
+          {step === "metamask" && <StepMetamask />}
+          {step === "x" && <StepX />}
+          {step === "followGalactica" && <StepFollowGalactica />}
+          {step === "retweet" && <StepRetweet />}
+          {step === "verifying" && followStatus && retweetStatus && (
+            <StepVerifying
+              followStatus={followStatus}
+              retweetStatus={retweetStatus}
+            />
+          )}
+          {step === "issueSBT" && <StepIssueSBT />}
+          {step === "receiveSBT" && txHash && (
+            <StepReceiveSBT txHash={txHash} />
+          )}
+        </>
       )}
-      {step === "issueSBT" && <StepIssueSBT />}
-      {step === "receiveSBT" && txHash && <StepReceiveSBT txHash={txHash} />}
     </div>
   );
 };
