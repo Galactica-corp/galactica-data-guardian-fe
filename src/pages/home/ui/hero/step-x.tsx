@@ -5,7 +5,7 @@ import { StepContent } from "./step-content";
 
 export const StepX = () => {
   return (
-    <StepContent title="Get your TestNet X SBT">
+    <StepContent title="Get your Gateway X SBT">
       <Button
         as={"a"}
         className="w-[266px] whitespace-nowrap text-sm"

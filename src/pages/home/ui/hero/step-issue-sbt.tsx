@@ -10,7 +10,7 @@ export const StepIssueSBT = () => {
   const status = data?.checkStatus;
 
   return (
-    <StepContent title="Get your TestNet X SBT">
+    <StepContent title="Get your Gateway X SBT">
       <div className="flex flex-col items-center">
         <Spinner />
         <span className="mt-4 whitespace-pre-line text-sm font-medium">

@@ -4,7 +4,7 @@ import { StepContent } from "./step-content";
 
 export const StepMetamask = () => {
   return (
-    <StepContent title="Get your TestNet X SBT">
+    <StepContent title="Get your Gateway X SBT">
       <ConnectWalletButton className="w-[266px] py-2" theme="jaffa" />
     </StepContent>
   );
