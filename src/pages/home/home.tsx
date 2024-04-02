@@ -9,7 +9,7 @@ import { useStatus } from "./hooks/useStatus";
 import { Hero } from "./ui/hero/hero";
 
 const useStep = () => {
-  const { isDisconnected } = useAccount();
+  const { isDisconnected, isConnected } = useAccount();
 
   const { data, query } = useStatus();
   const error = query.error;
@@ -41,7 +41,7 @@ const useStep = () => {
     };
   }
 
-  if (isDisconnected) {
+  if (!isConnected) {
     return {
       step: "metamask" as const,
       retweetState,
