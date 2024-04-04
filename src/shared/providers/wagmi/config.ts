@@ -24,7 +24,6 @@ export const config = createConfig({
       unstable_shimAsyncInject: true,
     }),
   ],
-  multiInjectedProviderDiscovery: false,
 });
 
 declare module "wagmi" {
