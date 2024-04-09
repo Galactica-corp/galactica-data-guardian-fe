@@ -9,7 +9,7 @@ import { Spinner } from "shared/ui/spinner";
 import { StepFollowGalactica } from "./step-following-galactica";
 import { StepIssueSBT } from "./step-issue-sbt";
 import { StepMetamask } from "./step-metamask";
-import { StepReceiveSBT } from "./step-receive-sbt";
+import { StepReceiveSBT } from "./step-receive-sbt/step-receive-sbt";
 import { StepRetweet } from "./step-retweet";
 import { StepVerifying } from "./step-verifying/step-verifying";
 import { Status } from "./step-verifying/types";

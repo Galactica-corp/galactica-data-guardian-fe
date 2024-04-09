@@ -1,3 +1,4 @@
+export { default as arrowRight } from "./arrow-right.svg?react";
 export { default as atom } from "./atom.svg?react";
 export { default as backArrow } from "./back-arrow.svg?react";
 export { default as check } from "./check.svg?react";

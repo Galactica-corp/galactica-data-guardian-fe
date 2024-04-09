@@ -85,7 +85,7 @@ export const Home = () => {
           txHash={txHash}
         />
         <Footer
-          className="mb-16 mt-auto px-28 max-xl:px-5 max-lg:px-0"
+          className="mb-16 mt-auto px-28 max-xl:px-5 max-lg:px-0 max-md:mb-3"
           step={step}
         />
       </div>

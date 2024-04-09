@@ -123,7 +123,13 @@ export const Footer = ({ className, step }: Props) => {
   const hasStepAfterActive = activeStepIdx + 1 < stepData.length;
 
   return (
-    <footer className={twMerge("pb-8 max-lg:overflow-scroll", className)}>
+    <footer
+      className={twMerge(
+        "pb-8 max-lg:overflow-scroll",
+        !hasStepAfterActive && "max-md:pr-10",
+        className
+      )}
+    >
       <div
         className={twMerge(
           "relative mx-auto hidden w-full max-w-full items-center justify-between px-0 pb-2 scrollbar-thin max-md:flex",
