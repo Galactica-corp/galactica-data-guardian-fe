@@ -21,7 +21,7 @@ export const Header = ({ className, step }: Props) => {
   return (
     <nav
       className={twMerge(
-        "relative top-0 z-10 flex items-center overflow-hidden rounded-b-lg bg-transparent max-md:absolute max-md:inset-x-3 max-md:h-[72px] max-md:flex-col max-md:items-start max-md:bg-white max-md:px-4",
+        "relative top-5 z-10 flex items-center overflow-hidden rounded-b-lg bg-transparent max-md:absolute max-md:inset-x-3 max-md:top-0 max-md:h-[72px] max-md:flex-col max-md:items-start max-md:bg-white max-md:px-4",
         className
       )}
       ref={scope}
