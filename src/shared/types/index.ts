@@ -17,5 +17,5 @@ export type PolymorphicProps<
   E extends ElementType,
   P = Record<string, unknown>,
 > = AsProp<E> &
-  P &
-  DistributiveOmit<ComponentPropsWithoutRef<E>, keyof AsProp<E> | keyof P>;
+  DistributiveOmit<ComponentPropsWithoutRef<E>, keyof AsProp<E> | keyof P> &
+  P;

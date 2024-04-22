@@ -17,7 +17,7 @@ const spinTransition = {
 
 const animate = { rotate: 360 };
 
-export const Spinner = ({ className, theme = "jaffa" }: Props & ClassName) => {
+export const Spinner = ({ className, theme = "jaffa" }: ClassName & Props) => {
   return (
     <motion.svg
       animate={animate}

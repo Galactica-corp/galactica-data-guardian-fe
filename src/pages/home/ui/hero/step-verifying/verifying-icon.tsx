@@ -44,7 +44,7 @@ export const VerifyingIcon = ({
   status,
   className,
   pendingIconName,
-}: Props & ClassName) => {
+}: ClassName & Props) => {
   const icon = icons(pendingIconName)[status];
   return (
     <div
