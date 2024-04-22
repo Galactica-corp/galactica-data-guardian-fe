@@ -20,10 +20,10 @@ export const ConnectButton = ({
       disconnect();
     }
     if (isDisconnected) {
-      const connector = connectors.find(
+      const metamaskConnector = connectors.find(
         (connector) => connector.name === "MetaMask"
       );
-      connector && connect({ connector });
+      metamaskConnector && connect({ connector: metamaskConnector });
     }
   };
 
