@@ -25,7 +25,7 @@ export const StepReceiveSBT = ({ txHash }: Props) => {
         the exciting world of{" "}
         <a
           className="text-jaffa underline"
-          href="https://app-andromeda.galactica.com/"
+          href="https://app-reticulum.galactica.com/"
           referrerPolicy="no-referrer"
         >
           Galactica.com.

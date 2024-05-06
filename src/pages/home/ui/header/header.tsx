@@ -56,7 +56,7 @@ export const Header = ({ className, step }: Props) => {
           <NavLink
             referrerPolicy="no-referrer"
             target="_blank"
-            to="https://app-andromeda.galactica.com/"
+            to="https://app-reticulum.galactica.com/"
           >
             Home
           </NavLink>
